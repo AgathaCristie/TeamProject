@@ -18,12 +18,16 @@ namespace Test
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Hero JohnSnow;
+
+        const int WIDTH = 800;
+        const int HEIGHT = 600;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = WIDTH;
+            graphics.PreferredBackBufferHeight = HEIGHT;
             Content.RootDirectory = "Content";
         }
 
@@ -48,8 +52,8 @@ namespace Test
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            JohnSnow = new Hero(Content, WIDTH, HEIGHT);
 
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -68,10 +72,8 @@ namespace Test
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
 
+            MoveHero();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -83,11 +85,44 @@ namespace Test
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Khaki);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            JohnSnow.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void MoveHero()
+        {
+                KeyboardState keyState = Keyboard.GetState();
+                if (keyState.IsKeyDown(Keys.Right))
+                {
+                    JohnSnow.Update(1,0);
+                }
+                else if(keyState.IsKeyDown(Keys.Left))
+                {
+                    JohnSnow.Update(-1,0);
+                    //turn image left . Add more images to array
+                }
+                else if(keyState.IsKeyDown(Keys.Up))
+                {
+                    JohnSnow.Update(0, -1);
+                }
+                else if (keyState.IsKeyDown(Keys.Down))
+                {
+                    JohnSnow.Update(0, 1);
+                }
+                else if (keyState.IsKeyDown(Keys.Space))
+                {
+                    //fire, hit, open, etc...
+                }
+                else if (keyState.IsKeyDown(Keys.P))
+                {
+                    //pause game
+                }
         }
     }
 }

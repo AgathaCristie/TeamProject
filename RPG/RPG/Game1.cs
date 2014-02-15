@@ -1,0 +1,147 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using RPG.Heroes;
+
+namespace RPG
+{
+
+    public class Game1 : Microsoft.Xna.Framework.Game
+    {
+        const int WIDTH = 800;
+        const int HEIGHT = 600;
+        int heroSpeed = 8;          //controls the pace at which movement images change in Update()
+        int heroMovement = 3;       //controls the speed of the hero in MoveHero()
+
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        SpriteFont fontMenu;
+
+        Texture2D imgMenuBackground;            //background image
+        Texture2D imgGameStartBackground;
+        BaseGameScreen activeScreen;
+        MenuStartScreen startScreen;
+        GameStartScreen gameStartScreen;
+
+        Hero JohnSnow;
+
+        public Game1()
+        {
+            graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = WIDTH;
+            graphics.PreferredBackBufferHeight = HEIGHT;
+            Content.RootDirectory = "Content";
+        }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
+            imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
+            imgGameStartBackground = Content.Load<Texture2D>("images\\BattleScreen1");
+
+            startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
+            //gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
+
+            gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
+
+            Components.Add(startScreen);
+            Components.Add(gameStartScreen);
+            gameStartScreen.Hide();
+            activeScreen = startScreen;
+            activeScreen.Show();
+
+            JohnSnow = new Hero(Content, WIDTH, HEIGHT);           
+
+        }
+
+        protected override void UnloadContent()
+        {
+
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+
+            if(activeScreen == startScreen)
+            {
+                KeyboardState state = Keyboard.GetState();
+                if(state.IsKeyDown(Keys.Enter) && (startScreen.SelectedIndex == 0 ))
+                {
+                    activeScreen.Hide();
+                    activeScreen = gameStartScreen;
+                    activeScreen.Show();
+                }
+            }
+            else if (activeScreen == gameStartScreen)
+            {
+                if (heroSpeed == 0)
+                    MoveHero();
+
+                if (--heroSpeed < 0) heroSpeed = 5;
+            }
+
+            base.Update(gameTime);
+        }
+
+
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            
+            base.Draw(gameTime);
+            JohnSnow.Draw(spriteBatch);
+            spriteBatch.End();
+            
+        }
+
+
+        public void MoveHero()
+        {
+            KeyboardState keyState = Keyboard.GetState();
+            if (keyState.IsKeyDown(Keys.Right))
+            {
+                JohnSnow.Update(heroMovement, 0);
+            }
+            else if (keyState.IsKeyDown(Keys.Left))
+            {
+                JohnSnow.Update(-heroMovement, 0);
+                //turn image left . Add more images to array
+            }
+            else if (keyState.IsKeyDown(Keys.Up))
+            {
+                JohnSnow.Update(0, -heroMovement);
+            }
+            else if (keyState.IsKeyDown(Keys.Down))
+            {
+                JohnSnow.Update(0, heroMovement);
+            }
+            else if (keyState.IsKeyDown(Keys.Space))
+            {
+                //fire, hit, open, etc...
+            }
+            else if (keyState.IsKeyDown(Keys.P))
+            {
+                //pause game
+            }
+
+        }
+
+    }
+}

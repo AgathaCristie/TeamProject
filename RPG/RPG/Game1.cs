@@ -114,12 +114,13 @@ namespace RPG
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Right))
             {
+                JohnSnow.IsLeft = false;
                 JohnSnow.Update(heroMovement, 0);
             }
             else if (keyState.IsKeyDown(Keys.Left))
             {
+                JohnSnow.IsLeft = true;         //turns hero to the left
                 JohnSnow.Update(-heroMovement, 0);
-                //turn image left . Add more images to array
             }
             else if (keyState.IsKeyDown(Keys.Up))
             {
@@ -135,7 +136,7 @@ namespace RPG
             }
             else if (keyState.IsKeyDown(Keys.P))
             {
-                //pause game
+               
             }
 
         }

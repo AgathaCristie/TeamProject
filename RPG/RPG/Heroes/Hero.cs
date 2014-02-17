@@ -12,11 +12,13 @@ namespace RPG.Heroes
     {
         private Rectangle imageContainer;
         private Texture2D[] images = new Texture2D[4];      //Holds four images for the movement of the hero
+        private Texture2D[] imagesLeft = new Texture2D[4];
         private Texture2D defaultImage;                     //starting image
 
         private int windowHeight;
         private int windowWidth;
-        private int count = 0;      //counts images' index in Update()
+        private int count = 0;              //counts images' index in Update()
+        private bool isLeft = false;        //checks if the hero is turned to the left
 
         public Hero(ContentManager manager, int width, int height)
         {
@@ -26,21 +28,32 @@ namespace RPG.Heroes
             images[0] = manager.Load<Texture2D>("sprites\\Move1");
             images[1] = manager.Load<Texture2D>("sprites\\Move2");
             images[2] = manager.Load<Texture2D>("sprites\\Move3");
-            images[2] = manager.Load<Texture2D>("sprites\\Move4");
+            images[3] = manager.Load<Texture2D>("sprites\\Move4");
+            imagesLeft[0] = manager.Load<Texture2D>("sprites\\MoveLeft1");
+            imagesLeft[1] = manager.Load<Texture2D>("sprites\\MoveLeft2");
+            imagesLeft[2] = manager.Load<Texture2D>("sprites\\MoveLeft3");
+            imagesLeft[3] = manager.Load<Texture2D>("sprites\\MoveLeft4");
             defaultImage = images[0];
             imageContainer = new Rectangle(60, 250, defaultImage.Width, defaultImage.Height);
         }
 
         public void Update(int x, int y)
         {
-
-            //Moves and updates the image
-            imageContainer.X += (x);
+            if(isLeft == true)
+                defaultImage = imagesLeft[count];
+            if(isLeft == false)
+                defaultImage = images[count];
+ 
+            imageContainer.X += (x);        //moves the images
             imageContainer.Y += (y);
-            defaultImage = images[count];
             count++;
             if (count == images.Length - 1)
                 count = 0;
+        }
+
+        public bool IsLeft
+        {
+            set { isLeft = value; }
         }
 
         public void Draw(SpriteBatch spriteBatch)

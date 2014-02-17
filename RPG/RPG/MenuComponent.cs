@@ -30,12 +30,14 @@ namespace RPG
         private float width;
         private float height;
         private Vector2 position;
+        private SoundEffect soundEffect;
 
         public MenuComponent(Game game, string[] items, SpriteBatch batch, SpriteFont font): base(game)
         {
             menuItems = items;
             spriteBatch = batch;
             spriteFont = font;
+            soundEffect = game.Content.Load<SoundEffect>("sounds\\Menu");
             MeasureMenu();
         }
 
@@ -62,10 +64,15 @@ namespace RPG
             keyboardState = Keyboard.GetState();
 
             if (CheckKey(Keys.Down))
+            {
+                soundEffect.Play();
                 SelectedIndex++;
+            }
             if (CheckKey(Keys.Up))
+            {
                 SelectedIndex--;
-
+                soundEffect.Play();
+            }
             base.Update(gameTime);
             oldKeyboardState = keyboardState;
         }

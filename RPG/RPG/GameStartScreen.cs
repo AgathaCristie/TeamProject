@@ -17,6 +17,7 @@ namespace RPG
         private Rectangle imgBackGroundContainer;
         private SpriteBatch spriteBatch;
         private Hero hero;
+        SpriteFont fontMenu; 
 
         public GameStartScreen(Game game, SpriteBatch sprite, Texture2D image) : base(game, sprite)
         {
@@ -24,6 +25,7 @@ namespace RPG
             this.spriteBatch = sprite;
             imgBackGroundContainer = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
             hero = new Hero(game.Content, Width, Height);
+            fontMenu = game.Content.Load<SpriteFont>("fonts\\MenuFont");
         }
         
         public Hero Hero
@@ -43,11 +45,16 @@ namespace RPG
         {
             spriteBatch.Draw(imgBackgound, imgBackGroundContainer, Color.White);
             hero.Draw(spriteBatch);
-            base.Draw(gameTime);
-  
-            //hero.Draw(spriteBatch);
-         
+            base.Draw(gameTime);    
         }
 
+
+        //Write Text On Screen
+        public void WriteText(SpriteFont font, SpriteBatch sprite, string text, Color c )
+        {
+            sprite.DrawString(font, text, new Vector2(120,190), c);
+            //Add rectangle or border around text
+        }
+        
     }
 }

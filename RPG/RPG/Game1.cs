@@ -89,7 +89,7 @@ namespace RPG
             {
                 KeyboardState state = Keyboard.GetState();
                 if(state.IsKeyDown(Keys.Enter) && (startScreen.SelectedIndex == 0 ))
-                {
+                {                  
                     activeScreen.Hide();
                     activeScreen = gameStartScreen;
                     activeScreen.Show();

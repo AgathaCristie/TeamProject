@@ -28,6 +28,8 @@ namespace RPG
         Texture2D imgGameStartBackground;
         BaseGameScreen activeScreen;
         MenuStartScreen startScreen;
+        MenuHighScores scoresScreen;
+        MenuControls controlsScreen;
         GameStartScreen gameStartScreen;
 
         Hero JohnSnow;
@@ -53,13 +55,18 @@ namespace RPG
             imgGameStartBackground = Content.Load<Texture2D>("images\\BattleScreen1");
 
             startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
-            //gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
-
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
-            
+            scoresScreen = new MenuHighScores(this, spriteBatch, fontMenu, imgMenuBackground);
+            controlsScreen = new MenuControls(this, spriteBatch, fontMenu, imgMenuBackground);
+
             Components.Add(startScreen);
             Components.Add(gameStartScreen);
+            Components.Add(scoresScreen);
+            Components.Add(controlsScreen);
+
             gameStartScreen.Hide();
+            scoresScreen.Hide();
+            controlsScreen.Hide();
             activeScreen = startScreen;
             activeScreen.Show();
 
@@ -73,10 +80,11 @@ namespace RPG
 
         protected override void Update(GameTime gameTime)
         {
-
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            //Switch between screens
             if(activeScreen == startScreen)
             {
                 KeyboardState state = Keyboard.GetState();
@@ -84,6 +92,45 @@ namespace RPG
                 {
                     activeScreen.Hide();
                     activeScreen = gameStartScreen;
+                    activeScreen.Show();
+                }
+                if (state.IsKeyDown(Keys.Enter) && (startScreen.SelectedIndex == 2))
+                {
+                    activeScreen.Hide();
+                    activeScreen = scoresScreen;
+                    activeScreen.Show();
+                }
+                if (state.IsKeyDown(Keys.Enter) && (startScreen.SelectedIndex == 1))
+                {
+                    activeScreen.Hide();
+                    activeScreen = controlsScreen;
+                    activeScreen.Show();
+                }
+                if (state.IsKeyDown(Keys.Enter) && (startScreen.SelectedIndex == 3))
+                {
+                    this.Exit();
+                }
+            }
+
+            //Control for each screen
+            else if(activeScreen == scoresScreen)
+            {
+                //BUG : Pressing Enter Use oldstate?
+                KeyboardState state = Keyboard.GetState();
+                if (state.IsKeyDown(Keys.Enter))
+                {
+                    activeScreen.Hide();
+                    activeScreen = startScreen;
+                    activeScreen.Show();
+                }
+            }
+            else if (activeScreen == controlsScreen)
+            {
+                KeyboardState state = Keyboard.GetState();
+                if (state.IsKeyDown(Keys.Enter))
+                {
+                    activeScreen.Hide();
+                    activeScreen = startScreen;
                     activeScreen.Show();
                 }
             }
@@ -98,7 +145,6 @@ namespace RPG
             base.Update(gameTime);
         }
 
-
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -107,7 +153,6 @@ namespace RPG
             base.Draw(gameTime);
             spriteBatch.End();           
         }
-
 
         public void MoveHero()
         {

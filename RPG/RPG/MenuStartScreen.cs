@@ -16,7 +16,7 @@ namespace RPG
 
         public MenuStartScreen(Game game, SpriteBatch sprite, SpriteFont font, Texture2D image) : base(game, sprite)
         {
-            string[] menuItems = { "New Game", "Controls", "High Score", "End Game" };
+            string[] menuItems = { "New Game", "Controls", "High Scores", "Exit Game" };
             menu = new MenuComponent(game, menuItems, sprite, font);           
             this.image = image;
             spriteBatch = sprite;            

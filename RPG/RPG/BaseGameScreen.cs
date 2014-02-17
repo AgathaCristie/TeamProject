@@ -14,12 +14,14 @@ namespace RPG
     //Class to be extended by all other screen classes
     public abstract class BaseGameScreen : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        private const int WIDTH = 800;
+        private const int HEIGHT = 600;
+
         private List<GameComponent> components = new List<GameComponent>();
         private Game game;
         private SpriteBatch spriteBatch;
 
-        public BaseGameScreen(Game game, SpriteBatch sprite)
-            : base(game)
+        public BaseGameScreen(Game game, SpriteBatch sprite): base(game)
         {
             this.game = game;
             this.spriteBatch = sprite;
@@ -32,8 +34,6 @@ namespace RPG
 
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
@@ -77,6 +77,16 @@ namespace RPG
                     ((DrawableGameComponent)component).Visible = false;
             }
         }
+
+        public int Height
+        {
+            get { return HEIGHT; }
+        }
+        public int Width
+        {
+            get { return WIDTH; }
+        }
+
 
     }
 }

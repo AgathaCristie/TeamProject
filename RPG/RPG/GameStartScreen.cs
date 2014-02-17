@@ -23,7 +23,7 @@ namespace RPG
             this.imgBackgound = image;
             this.spriteBatch = sprite;
             imgBackGroundContainer = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
-            hero = new Hero(game.Content, 800, 600);
+            hero = new Hero(game.Content, Width, Height);
         }
         
         public Hero Hero

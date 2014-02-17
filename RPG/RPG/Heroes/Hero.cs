@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace RPG.Heroes
 {
-    class Hero
+    public class Hero
     {
         private Rectangle imageContainer;
         private Texture2D[] images = new Texture2D[4];      //Holds four images for the movement of the hero
@@ -30,7 +30,6 @@ namespace RPG.Heroes
             defaultImage = images[0];
             imageContainer = new Rectangle(60, 250, defaultImage.Width, defaultImage.Height);
         }
-
 
         public void Update(int x, int y)
         {

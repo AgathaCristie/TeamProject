@@ -12,27 +12,24 @@ namespace RPG
 {
     public class GameStartScreen : BaseGameScreen
     {
-        KeyboardState keyboardState;
-        Texture2D imgBackgound;
-        Rectangle imgBackGroundContainer;
-        SpriteBatch spriteBatch;
-        //ContentManager parentContent;
-        //Hero hero;
+        private KeyboardState keyboardState;
+        private Texture2D imgBackgound;
+        private Rectangle imgBackGroundContainer;
+        private SpriteBatch spriteBatch;
+        private Hero hero;
 
         public GameStartScreen(Game game, SpriteBatch sprite, Texture2D image) : base(game, sprite)
         {
             this.imgBackgound = image;
             this.spriteBatch = sprite;
             imgBackGroundContainer = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
+            hero = new Hero(game.Content, 800, 600);
         }
-
-        //public GameStartScreen(Game game, SpriteBatch sprite, Texture2D image, ContentManager mngr): base(game, sprite)
-        //{
-        //    this.imgBackgound = image;
-        //    this.spriteBatch = sprite;
-        //    this.parentContent = mngr;
-        //    imgBackGroundContainer = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
-        //}
+        
+        public Hero Hero
+        {
+            get { return hero; }
+        }
 
 
         public override void Update(GameTime gameTime)
@@ -45,6 +42,7 @@ namespace RPG
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(imgBackgound, imgBackGroundContainer, Color.White);
+            hero.Draw(spriteBatch);
             base.Draw(gameTime);
   
             //hero.Draw(spriteBatch);

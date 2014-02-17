@@ -56,15 +56,14 @@ namespace RPG
             //gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
 
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
-
+            
             Components.Add(startScreen);
             Components.Add(gameStartScreen);
             gameStartScreen.Hide();
             activeScreen = startScreen;
             activeScreen.Show();
 
-            JohnSnow = new Hero(Content, WIDTH, HEIGHT);           
-
+            JohnSnow = gameStartScreen.Hero;
         }
 
         protected override void UnloadContent()
@@ -106,9 +105,7 @@ namespace RPG
             spriteBatch.Begin();
             
             base.Draw(gameTime);
-            JohnSnow.Draw(spriteBatch);
-            spriteBatch.End();
-            
+            spriteBatch.End();           
         }
 
 

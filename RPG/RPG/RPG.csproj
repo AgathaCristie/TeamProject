@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseGameScreen.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="GameStartScreen.cs" />
     <Compile Include="Heroes\Hero.cs" />
     <Compile Include="MenuComponent.cs" />

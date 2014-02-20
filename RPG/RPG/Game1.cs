@@ -33,6 +33,7 @@ namespace RPG
         GameStartScreen gameStartScreen;
 
         Hero JohnSnow;
+        Camera cam;
 
         public Game1()
         {
@@ -49,10 +50,14 @@ namespace RPG
 
         protected override void LoadContent()
         {
+            //BUG : Pressing Enter in Menu Use oldstate?
+            //TODO : Move Camera to GameStartScreen?
+            //TODO : Restrict camera movement
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
             imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
-            imgGameStartBackground = Content.Load<Texture2D>("images\\BattleScreen1");
+            imgGameStartBackground = Content.Load<Texture2D>("images\\Level1");
 
             startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
@@ -71,6 +76,7 @@ namespace RPG
             activeScreen.Show();
 
             JohnSnow = gameStartScreen.Hero;
+            cam = new Camera(GraphicsDevice.Viewport, JohnSnow);
         }
 
         protected override void UnloadContent()
@@ -115,7 +121,7 @@ namespace RPG
             //Control for each screen
             else if(activeScreen == scoresScreen)
             {
-                //BUG : Pressing Enter Use oldstate?
+                
                 KeyboardState state = Keyboard.GetState();
                 if (state.IsKeyDown(Keys.Enter))
                 {
@@ -141,14 +147,14 @@ namespace RPG
 
                 if (--heroSpeed < 0) heroSpeed = 5;
             }
-
+            cam.Update(gameTime, this);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred,BlendState.AlphaBlend,null,null,null,null,cam.Transform);
             
             base.Draw(gameTime);
             spriteBatch.End();           

@@ -34,8 +34,13 @@ namespace RPG.Heroes
             imagesLeft[2] = manager.Load<Texture2D>("sprites\\MoveLeft3");
             imagesLeft[3] = manager.Load<Texture2D>("sprites\\MoveLeft4");
             defaultImage = images[0];
-            imageContainer = new Rectangle(60, 250, defaultImage.Width, defaultImage.Height);
+            imageContainer = new Rectangle(160, 250, defaultImage.Width, defaultImage.Height);
         }
+
+        public Rectangle ImgageContainer
+        {
+            get { return imageContainer; }
+        }     
 
         public void Update(int x, int y)
         {

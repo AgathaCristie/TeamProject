@@ -12,18 +12,19 @@ namespace RPG
 {
     public class GameStartScreen : BaseGameScreen
     {
+        private static int CONTAINER_SIZE = 2048; // Size of the background image
         private KeyboardState keyboardState;
         private Texture2D imgBackgound;
         private Rectangle imgBackGroundContainer;
         private SpriteBatch spriteBatch;
         private Hero hero;
-        SpriteFont fontMenu; 
+        private SpriteFont fontMenu;
 
         public GameStartScreen(Game game, SpriteBatch sprite, Texture2D image) : base(game, sprite)
         {
             this.imgBackgound = image;
             this.spriteBatch = sprite;
-            imgBackGroundContainer = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
+            imgBackGroundContainer = new Rectangle(0, 0, CONTAINER_SIZE, CONTAINER_SIZE);
             hero = new Hero(game.Content, Width, Height);
             fontMenu = game.Content.Load<SpriteFont>("fonts\\MenuFont");
         }

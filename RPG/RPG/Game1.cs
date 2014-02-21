@@ -18,8 +18,7 @@ namespace RPG
         const int WIDTH = 800;
         const int HEIGHT = 600;
         int heroSpeed = 8;          //controls the pace at which movement images change in Update()
-        int heroMovement = 3;       //controls the speed of the hero in MoveHero()
-
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont fontMenu;
@@ -143,7 +142,7 @@ namespace RPG
             else if (activeScreen == gameStartScreen)
             {
                 if (heroSpeed == 0)
-                    MoveHero();
+                    JohnSnow.Update();
 
                 if (--heroSpeed < 0) heroSpeed = 5;
             }
@@ -160,37 +159,7 @@ namespace RPG
             spriteBatch.End();           
         }
 
-        public void MoveHero()
-        {
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Right))
-            {
-                JohnSnow.IsLeft = false;
-                JohnSnow.Update(heroMovement, 0);
-            }
-            else if (keyState.IsKeyDown(Keys.Left))
-            {
-                JohnSnow.IsLeft = true;         //turns hero to the left
-                JohnSnow.Update(-heroMovement, 0);
-            }
-            else if (keyState.IsKeyDown(Keys.Up))
-            {
-                JohnSnow.Update(0, -heroMovement);
-            }
-            else if (keyState.IsKeyDown(Keys.Down))
-            {
-                JohnSnow.Update(0, heroMovement);
-            }
-            else if (keyState.IsKeyDown(Keys.Space))
-            {
-                //fire, hit, open, etc...
-            }
-            else if (keyState.IsKeyDown(Keys.P))
-            {
-               
-            }
-
-        }
+        
 
     }
 }

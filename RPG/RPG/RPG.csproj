@@ -76,6 +76,8 @@
     <Compile Include="Camera.cs" />
     <Compile Include="GameStartScreen.cs" />
     <Compile Include="Heroes\Hero.cs" />
+    <Compile Include="Heroes\IHeroes.cs" />
+    <Compile Include="Heroes\Player.cs" />
     <Compile Include="MenuComponent.cs" />
     <Compile Include="MenuControls.cs" />
     <Compile Include="MenuHighScores.cs" />

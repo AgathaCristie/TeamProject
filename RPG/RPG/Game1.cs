@@ -142,7 +142,7 @@ namespace RPG
             else if (activeScreen == gameStartScreen)
             {
                 if (heroSpeed == 0)
-                    JohnSnow.Update();
+                    JohnSnow.Update();  //Update the position of the hero
 
                 if (--heroSpeed < 0) heroSpeed = 5;
             }

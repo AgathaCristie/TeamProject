@@ -9,6 +9,7 @@
         protected Texture2D[] imagesLeft = new Texture2D[4];
         protected Texture2D defaultImage;                     //starting image
 
+        //Properties
         public Rectangle ImageContainer
         {
             get { return this.imageContainer; }
@@ -33,6 +34,7 @@
             set { this.defaultImage = value; }
         }
 
+        //Abstract methods
         public abstract void Update();
 
         public abstract void Draw(SpriteBatch spriteBatch);

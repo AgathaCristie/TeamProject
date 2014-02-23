@@ -75,6 +75,7 @@
     <Compile Include="BaseGameScreen.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="GameStartScreen.cs" />
+    <Compile Include="Heroes\Mage.cs" />
     <Compile Include="Monsters\Animation.cs" />
     <Compile Include="Heroes\Hero.cs" />
     <Compile Include="Heroes\IHeroes.cs" />

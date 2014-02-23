@@ -77,6 +77,13 @@
     <Compile Include="GameStartScreen.cs" />
     <Compile Include="Heroes\Archer.cs" />
     <Compile Include="Heroes\Mage.cs" />
+    <Compile Include="Items\Armor.cs" />
+    <Compile Include="Items\ArmorPartEnumeration.cs" />
+    <Compile Include="Items\BaseItem.cs" />
+    <Compile Include="Items\Consumable.cs" />
+    <Compile Include="Items\HandsWeaponWieldEnumeration.cs" />
+    <Compile Include="Items\IEquipable.cs" />
+    <Compile Include="Items\Weapon.cs" />
     <Compile Include="Monsters\Animation.cs" />
     <Compile Include="Heroes\Hero.cs" />
     <Compile Include="Heroes\IHeroes.cs" />

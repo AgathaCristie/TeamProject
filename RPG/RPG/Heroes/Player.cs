@@ -5,7 +5,7 @@
     using Microsoft.Xna.Framework.Input;
     public abstract class Player : IHeroes
     {
-        protected int startX = 160;                //initial position of player
+        protected int startX = 160;                          //initial position of player
         protected int startY = 250;
 
         protected Rectangle imageContainer;

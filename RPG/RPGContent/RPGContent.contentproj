@@ -143,43 +143,85 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\MageMove\MageMove1.png">
+    <Compile Include="sprites\MageMoves\MageMove1.png">
       <Name>MageMove1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMove2.png">
+    <Compile Include="sprites\MageMoves\MageMove2.png">
       <Name>MageMove2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMove3.png">
+    <Compile Include="sprites\MageMoves\MageMove3.png">
       <Name>MageMove3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMove4.png">
+    <Compile Include="sprites\MageMoves\MageMove4.png">
       <Name>MageMove4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMoveLeft1.png">
+    <Compile Include="sprites\MageMoves\MageMoveLeft1.png">
       <Name>MageMoveLeft1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMoveLeft2.png">
+    <Compile Include="sprites\MageMoves\MageMoveLeft2.png">
       <Name>MageMoveLeft2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMoveLeft3.png">
+    <Compile Include="sprites\MageMoves\MageMoveLeft3.png">
       <Name>MageMoveLeft3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\MageMove\MageMoveLeft4.png">
+    <Compile Include="sprites\MageMoves\MageMoveLeft4.png">
       <Name>MageMoveLeft4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\ArcherMoves\ArcherMove1.png">
+      <Name>ArcherMove1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMove2.png">
+      <Name>ArcherMove2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMove3.png">
+      <Name>ArcherMove3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMove4.png">
+      <Name>ArcherMove4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMoveLeft1.png">
+      <Name>ArcherMoveLeft1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMoveLeft2.png">
+      <Name>ArcherMoveLeft2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMoveLeft3.png">
+      <Name>ArcherMoveLeft3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\ArcherMoves\ArcherMoveLeft4.png">
+      <Name>ArcherMoveLeft4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

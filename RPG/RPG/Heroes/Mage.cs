@@ -21,16 +21,16 @@
             windowHeight = height;
 
             //Loads The images from the files when the hero is going right
-            this.Images[0] = manager.Load<Texture2D>("sprites\\MageMove\\MageMove1");
-            this.Images[1] = manager.Load<Texture2D>("sprites\\MageMove\\MageMove2");
-            this.Images[2] = manager.Load<Texture2D>("sprites\\MageMove\\MageMove3");
-            this.Images[3] = manager.Load<Texture2D>("sprites\\MageMove\\MageMove4");
+            this.Images[0] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMove1");
+            this.Images[1] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMove2");
+            this.Images[2] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMove3");
+            this.Images[3] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMove4");
 
             //Loads The images from the files when the hero is going left
-            this.ImagesLeft[0] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft1");
-            this.ImagesLeft[1] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft2");
-            this.ImagesLeft[2] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft3");
-            this.ImagesLeft[3] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft4");
+            this.ImagesLeft[0] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMoveLeft1");
+            this.ImagesLeft[1] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMoveLeft2");
+            this.ImagesLeft[2] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMoveLeft3");
+            this.ImagesLeft[3] = manager.Load<Texture2D>("sprites\\MageMoves\\MageMoveLeft4");
             this.DefaultImage = this.Images[0];
 
             //Create a rectangle for the hero

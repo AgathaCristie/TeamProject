@@ -29,8 +29,22 @@ namespace RPG
 
         public void Update(GameTime gametTime, Game1 game)
         {
-            centre = new Vector2(hero.ImageContainer.X + (hero.ImageContainer.Width / 2) - 195, hero.ImageContainer.Y + (hero.ImageContainer.Height / 2)-295);
-            transform = Matrix.CreateScale(new Vector3(1, 1, 0) )* Matrix.CreateTranslation(new Vector3(-centre.X, -centre.Y, 0));
+            //sets constraints for the camera
+            if ((hero.ImageContainer.X <= hero.StartX) && (hero.ImageContainer.Y < hero.StartY))
+            {
+                centre = new Vector2(hero.StartX + (hero.ImageContainer.Width / 2) - 195, hero.StartY + (hero.ImageContainer.Height / 2) - 295);
+            }
+            else if ((hero.ImageContainer.X <= hero.StartX))
+            {
+                centre = new Vector2(hero.StartX + (hero.ImageContainer.Width / 2) - 195, hero.ImageContainer.Y + (hero.ImageContainer.Height / 2) - 295);
+            }
+            else if ((hero.ImageContainer.Y < hero.StartY))
+            {
+                centre = new Vector2(hero.ImageContainer.X + (hero.ImageContainer.Width / 2) - 195, hero.StartY + (hero.ImageContainer.Height / 2) - 295);
+            }
+            else
+                centre = new Vector2(hero.ImageContainer.X + (hero.ImageContainer.Width / 2) - 195, hero.ImageContainer.Y + (hero.ImageContainer.Height / 2) - 295);
+            transform = Matrix.CreateScale(new Vector3(1, 1, 0)) * Matrix.CreateTranslation(new Vector3(-centre.X, -centre.Y, 0));
         }
     }
 }

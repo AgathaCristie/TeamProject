@@ -4,6 +4,9 @@
     using Microsoft.Xna.Framework.Graphics;
     public abstract class Player : IHeroes
     {
+        protected int startX = 160;                //initial position of player
+        protected int startY = 250;
+
         protected Rectangle imageContainer;
         protected Texture2D[] images = new Texture2D[4];      //Holds four images for the movement of the hero
         protected Texture2D[] imagesLeft = new Texture2D[4];
@@ -32,6 +35,15 @@
         {
             get { return this.defaultImage; }
             set { this.defaultImage = value; }
+        }
+
+        public int StartX
+        {
+            get { return startX; }
+        }
+        public int StartY
+        {
+            get { return startY; }
         }
 
         //Abstract methods

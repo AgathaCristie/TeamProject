@@ -27,10 +27,12 @@ namespace RPG
 
         Texture2D imgMenuBackground;            //background image
         Texture2D imgGameStartBackground;
+        Texture2D imgMenuStats;
         BaseGameScreen activeScreen;
         MenuStartScreen startScreen;
         MenuHighScores scoresScreen;
         MenuControls controlsScreen;
+        MenuStats statsScreen;
         GameStartScreen gameStartScreen;
 
         Hero JohnSnow;
@@ -67,20 +69,24 @@ namespace RPG
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
             imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
             imgGameStartBackground = Content.Load<Texture2D>("images\\Level1");
+            imgMenuStats = Content.Load<Texture2D>("images\\MenuStats");
 
             startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
             scoresScreen = new MenuHighScores(this, spriteBatch, fontMenu, imgMenuBackground);
             controlsScreen = new MenuControls(this, spriteBatch, fontMenu, imgMenuBackground);
+            statsScreen = new MenuStats(this, spriteBatch, fontMenu, imgMenuStats, JohnSnow);
 
             Components.Add(startScreen);
             Components.Add(gameStartScreen);
             Components.Add(scoresScreen);
             Components.Add(controlsScreen);
+            Components.Add(statsScreen);
 
             gameStartScreen.Hide();
             scoresScreen.Hide();
             controlsScreen.Hide();
+            statsScreen.Hide();
             activeScreen = startScreen;
             activeScreen.Show();
 
@@ -155,6 +161,15 @@ namespace RPG
             }
             else if (activeScreen == gameStartScreen)
             {
+                KeyboardState state = Keyboard.GetState();
+                if (state.IsKeyDown(Keys.Tab))
+                {
+                    statsScreen.Show();
+                }
+                if (state.IsKeyUp(Keys.Tab))
+                {
+                    statsScreen.Hide();
+                }
                 if (heroSpeed == 0)
                     JohnSnow.Update();  //Update the position of the hero
 

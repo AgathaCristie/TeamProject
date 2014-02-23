@@ -39,6 +39,7 @@ namespace RPG
         {
             base.Update(gameTime);
             keyboardState = Keyboard.GetState();
+
             if (keyboardState.IsKeyDown(Keys.Escape))
                 Game.Exit(); 
  

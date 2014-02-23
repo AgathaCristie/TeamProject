@@ -14,9 +14,6 @@
         //Fields
         private int windowHeight;
         private int windowWidth;
-        private int count = 0;              //counts images' index in Update()
-        private bool isLeft = false;        //checks if the hero is turned to the left
-        private int heroMovement = 10;       //controls the speed of the hero in MoveHero()
 
         //Constructor
         public Hero(ContentManager manager, int width, int height)
@@ -39,84 +36,6 @@
 
             //Create a rectangle for the hero
             this.ImageContainer = new Rectangle(160, 250, this.DefaultImage.Width, this.DefaultImage.Height);
-        }
-
-        //IsLeft property
-        public bool IsLeft
-        {
-            get { return this.isLeft; }
-            set { this.isLeft = value; }
-        }
-
-        //Override the Update() method
-        public override void Update()
-        {
-            // Movement right
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)
-                || GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
-            {
-                // the X coordinate of the rectangle will increase depending on the movement speed
-                this.IsLeft = false;
-                this.DefaultImage = this.Images[count];
-                this.imageContainer.X += heroMovement;
-            }
-
-            // Movement left
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)
-                || GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed)
-            {
-                this.IsLeft = true;
-                this.DefaultImage = this.ImagesLeft[count];
-                this.imageContainer.X -= heroMovement;
-            }
-
-            // Movement up
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)
-                || GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
-            {
-                if (this.IsLeft == true)
-                {
-                    this.DefaultImage = this.ImagesLeft[count];
-                    this.imageContainer.Y -= heroMovement;
-                }
-                else if (this.IsLeft == false)
-                {
-                    this.DefaultImage = this.Images[count];
-                    this.imageContainer.Y -= heroMovement;
-                }
-                
-            }
-
-            // Movement down
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)
-                || GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
-            {
-                if (this.IsLeft == true)
-                {
-                    this.DefaultImage = this.ImagesLeft[count];
-                    this.imageContainer.Y += heroMovement;
-                }
-                else if (this.IsLeft == false)
-                {
-                    this.DefaultImage = this.Images[count];
-                    this.imageContainer.Y += heroMovement;
-                }
-                
-            }
-
-            count++;
-
-            if (count == images.Length - 1)
-            {
-                count = 0;
-            }
-                
-        }
-
-        //Override the Draw() method
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(this.DefaultImage, this.ImageContainer, Color.White);
         }
     }
 }

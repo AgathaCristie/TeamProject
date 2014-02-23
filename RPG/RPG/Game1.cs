@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using RPG.Heroes;
+using RPG.Monsters;
+using RPG.Shots;
 
 namespace RPG
 {
@@ -32,6 +34,10 @@ namespace RPG
         GameStartScreen gameStartScreen;
 
         Hero JohnSnow;
+        Troll monster = new Troll(); //didi++
+        Magician magician = new Magician(); //didi++
+        Shooter shooter = new Shooter(); //didi++
+        FireBall fireBall = new FireBall(); //didi++
         Camera cam;
 
         public Game1()
@@ -44,6 +50,10 @@ namespace RPG
 
         protected override void Initialize()
         {
+            monster.Initialize(); //didi++
+            magician.Initialize(); //didi++
+            shooter.Initialize(); //didi++
+            fireBall.Initialize(); //didi++
             base.Initialize();
         }
 
@@ -75,6 +85,10 @@ namespace RPG
             activeScreen.Show();
 
             JohnSnow = gameStartScreen.Hero;
+            monster.LoadContent(Content); //didi ++ 
+            magician.LoadContent(Content); //didi ++
+            shooter.LoadContent(Content); //didi ++
+            fireBall.LoadContent(Content); //didi ++
             cam = new Camera(GraphicsDevice.Viewport, JohnSnow);
         }
 
@@ -145,6 +159,11 @@ namespace RPG
                     JohnSnow.Update();  //Update the position of the hero
 
                 if (--heroSpeed < 0) heroSpeed = 5;
+                monster.Update(gameTime); //didi++     
+                magician.Update(gameTime); //didi++
+                shooter.Update(gameTime); //didi++
+                fireBall.SpriteAnimation.Active = true;//didi++                
+                fireBall.Update(gameTime, JohnSnow.ImageContainer.X, JohnSnow.ImageContainer.Y); //didi++
             }
             cam.Update(gameTime, this);
             base.Update(gameTime);
@@ -156,6 +175,10 @@ namespace RPG
             spriteBatch.Begin(SpriteSortMode.Deferred,BlendState.AlphaBlend,null,null,null,null,cam.Transform);
             
             base.Draw(gameTime);
+            monster.Draw(spriteBatch); //didi++
+            magician.Draw(spriteBatch); //didi++
+            shooter.Draw(spriteBatch); //didi++
+            fireBall.Draw(spriteBatch); //didi++
             spriteBatch.End();           
         }
 

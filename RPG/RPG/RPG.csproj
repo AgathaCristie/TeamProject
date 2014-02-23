@@ -75,7 +75,13 @@
     <Compile Include="BaseGameScreen.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="GameStartScreen.cs" />
+    <Compile Include="Monsters\Animation.cs" />
     <Compile Include="Heroes\Hero.cs" />
+    <Compile Include="Heroes\IHeroes.cs" />
+    <Compile Include="Monsters\Magician.cs" />
+    <Compile Include="Heroes\Player.cs" />
+    <Compile Include="Monsters\Shooter.cs" />
+    <Compile Include="Monsters\Troll.cs" />
     <Compile Include="MenuComponent.cs" />
     <Compile Include="MenuControls.cs" />
     <Compile Include="MenuHighScores.cs" />
@@ -84,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameRun.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Shots\FireBall.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

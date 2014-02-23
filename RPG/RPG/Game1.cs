@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using RPG.Heroes;
+using RPG.Monsters;
+using RPG.Shots;
 
 namespace RPG
 {
@@ -18,24 +20,24 @@ namespace RPG
         const int WIDTH = 800;
         const int HEIGHT = 600;
         int heroSpeed = 8;          //controls the pace at which movement images change in Update()
-        int heroMovement = 3;       //controls the speed of the hero in MoveHero()
-
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont fontMenu;
 
         Texture2D imgMenuBackground;            //background image
         Texture2D imgGameStartBackground;
-        Texture2D imgGameStats;
         BaseGameScreen activeScreen;
         MenuStartScreen startScreen;
         MenuHighScores scoresScreen;
         MenuControls controlsScreen;
-        MenuStats statsScreen;
         GameStartScreen gameStartScreen;
-        
 
         Hero JohnSnow;
+        Troll monster = new Troll(); //didi++
+        Magician magician = new Magician(); //didi++
+        Shooter shooter = new Shooter(); //didi++
+        FireBall fireBall = new FireBall(); //didi++
         Camera cam;
 
         public Game1()
@@ -48,6 +50,10 @@ namespace RPG
 
         protected override void Initialize()
         {
+            monster.Initialize(); //didi++
+            magician.Initialize(); //didi++
+            shooter.Initialize(); //didi++
+            fireBall.Initialize(); //didi++
             base.Initialize();
         }
 
@@ -61,28 +67,28 @@ namespace RPG
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
             imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
             imgGameStartBackground = Content.Load<Texture2D>("images\\Level1");
-            imgGameStats = Content.Load<Texture2D>("images\\MenuStats");
 
             startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
             scoresScreen = new MenuHighScores(this, spriteBatch, fontMenu, imgMenuBackground);
             controlsScreen = new MenuControls(this, spriteBatch, fontMenu, imgMenuBackground);
-            statsScreen = new MenuStats(this, spriteBatch, fontMenu, imgGameStats, JohnSnow);
-            
+
             Components.Add(startScreen);
             Components.Add(gameStartScreen);
             Components.Add(scoresScreen);
             Components.Add(controlsScreen);
-            Components.Add(statsScreen);
 
             gameStartScreen.Hide();
             scoresScreen.Hide();
             controlsScreen.Hide();
-            statsScreen.Hide();
             activeScreen = startScreen;
             activeScreen.Show();
 
             JohnSnow = gameStartScreen.Hero;
+            monster.LoadContent(Content); //didi ++ 
+            magician.LoadContent(Content); //didi ++
+            shooter.LoadContent(Content); //didi ++
+            fireBall.LoadContent(Content); //didi ++
             cam = new Camera(GraphicsDevice.Viewport, JohnSnow);
         }
 
@@ -149,20 +155,15 @@ namespace RPG
             }
             else if (activeScreen == gameStartScreen)
             {
-                //displays Skills and  Stats Screen
-                KeyboardState state = Keyboard.GetState();
-                if(state.IsKeyDown(Keys.Tab))
-                {
-                    statsScreen.Show();
-                }
-                if (state.IsKeyUp(Keys.Tab))
-                    statsScreen.Hide();
-
-                //Controls hero movement
                 if (heroSpeed == 0)
-                    MoveHero();
+                    JohnSnow.Update();  //Update the position of the hero
 
                 if (--heroSpeed < 0) heroSpeed = 5;
+                monster.Update(gameTime); //didi++     
+                magician.Update(gameTime); //didi++
+                shooter.Update(gameTime); //didi++
+                fireBall.SpriteAnimation.Active = true;//didi++                
+                fireBall.Update(gameTime, JohnSnow.ImageContainer.X, JohnSnow.ImageContainer.Y); //didi++
             }
             cam.Update(gameTime, this);
             base.Update(gameTime);
@@ -174,40 +175,14 @@ namespace RPG
             spriteBatch.Begin(SpriteSortMode.Deferred,BlendState.AlphaBlend,null,null,null,null,cam.Transform);
             
             base.Draw(gameTime);
+            monster.Draw(spriteBatch); //didi++
+            magician.Draw(spriteBatch); //didi++
+            shooter.Draw(spriteBatch); //didi++
+            fireBall.Draw(spriteBatch); //didi++
             spriteBatch.End();           
         }
 
-        public void MoveHero()
-        {
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Right))
-            {
-                JohnSnow.IsLeft = false;
-                JohnSnow.Update(heroMovement, 0);
-            }
-            else if (keyState.IsKeyDown(Keys.Left))
-            {
-                JohnSnow.IsLeft = true;
-                JohnSnow.Update(-heroMovement, 0);
-            }
-            else if (keyState.IsKeyDown(Keys.Up))
-            {
-                JohnSnow.Update(0, -heroMovement);
-            }
-            else if (keyState.IsKeyDown(Keys.Down))
-            {
-                JohnSnow.Update(0, heroMovement);
-            }
-            else if (keyState.IsKeyDown(Keys.Space))
-            {
-                //fire, hit, open, etc...
-            }
-            else if (keyState.IsKeyDown(Keys.P))
-            {
-               
-            }
-
-        }
+        
 
     }
 }

@@ -26,11 +26,14 @@ namespace RPG
 
         Texture2D imgMenuBackground;            //background image
         Texture2D imgGameStartBackground;
+        Texture2D imgGameStats;
         BaseGameScreen activeScreen;
         MenuStartScreen startScreen;
         MenuHighScores scoresScreen;
         MenuControls controlsScreen;
+        MenuStats statsScreen;
         GameStartScreen gameStartScreen;
+        
 
         Hero JohnSnow;
         Camera cam;
@@ -58,20 +61,24 @@ namespace RPG
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
             imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
             imgGameStartBackground = Content.Load<Texture2D>("images\\Level1");
+            imgGameStats = Content.Load<Texture2D>("images\\MenuStats");
 
             startScreen = new MenuStartScreen(this, spriteBatch, fontMenu, imgMenuBackground);
             gameStartScreen = new GameStartScreen(this, spriteBatch, imgGameStartBackground);
             scoresScreen = new MenuHighScores(this, spriteBatch, fontMenu, imgMenuBackground);
             controlsScreen = new MenuControls(this, spriteBatch, fontMenu, imgMenuBackground);
-
+            statsScreen = new MenuStats(this, spriteBatch, fontMenu, imgGameStats, JohnSnow);
+            
             Components.Add(startScreen);
             Components.Add(gameStartScreen);
             Components.Add(scoresScreen);
             Components.Add(controlsScreen);
+            Components.Add(statsScreen);
 
             gameStartScreen.Hide();
             scoresScreen.Hide();
             controlsScreen.Hide();
+            statsScreen.Hide();
             activeScreen = startScreen;
             activeScreen.Show();
 
@@ -142,6 +149,16 @@ namespace RPG
             }
             else if (activeScreen == gameStartScreen)
             {
+                //displays Skills and  Stats Screen
+                KeyboardState state = Keyboard.GetState();
+                if(state.IsKeyDown(Keys.Tab))
+                {
+                    statsScreen.Show();
+                }
+                if (state.IsKeyUp(Keys.Tab))
+                    statsScreen.Hide();
+
+                //Controls hero movement
                 if (heroSpeed == 0)
                     MoveHero();
 
@@ -170,7 +187,7 @@ namespace RPG
             }
             else if (keyState.IsKeyDown(Keys.Left))
             {
-                JohnSnow.IsLeft = true;         //turns hero to the left
+                JohnSnow.IsLeft = true;
                 JohnSnow.Update(-heroMovement, 0);
             }
             else if (keyState.IsKeyDown(Keys.Up))

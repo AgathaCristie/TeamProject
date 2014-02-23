@@ -40,7 +40,8 @@ namespace RPG
             base.Update(gameTime);
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
-                Game.Exit();            
+                Game.Exit(); 
+ 
         }
         public override void Draw(GameTime gameTime)
         {

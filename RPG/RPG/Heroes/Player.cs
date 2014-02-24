@@ -9,6 +9,8 @@
         protected int startY = 250;
 
         protected Rectangle imageContainer;
+        protected Texture2D imageAttack;
+        protected Texture2D imageAttackLeft;
         protected Texture2D[] images = new Texture2D[4];      //Holds four images for the movement of the hero
         protected Texture2D[] imagesLeft = new Texture2D[4];
         protected Texture2D defaultImage;                     //starting image
@@ -60,7 +62,23 @@
 
         //the Update() method
         public void Update()
-        {
+        {   
+            //Attack
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                if(this.isLeft == false)
+                    this.defaultImage = imageAttack;
+                else
+                    this.defaultImage = imageAttackLeft;
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.Space))
+            {
+                if (this.isLeft == false)
+                    this.DefaultImage = this.Images[0];
+                else
+                    this.DefaultImage = this.ImagesLeft[0];
+            }
+
             // Movement right
             if (Keyboard.GetState().IsKeyDown(Keys.Right)
                 || GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)

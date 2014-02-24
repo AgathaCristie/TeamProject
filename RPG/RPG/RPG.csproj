@@ -84,6 +84,7 @@
     <Compile Include="Items\HandsWeaponWieldEnumeration.cs" />
     <Compile Include="Items\IEquipable.cs" />
     <Compile Include="Items\Weapon.cs" />
+    <Compile Include="MenuClassChoice.cs" />
     <Compile Include="Monsters\Animation.cs" />
     <Compile Include="Heroes\Hero.cs" />
     <Compile Include="Heroes\IHeroes.cs" />

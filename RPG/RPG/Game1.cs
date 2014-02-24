@@ -61,9 +61,6 @@ namespace RPG
 
         protected override void LoadContent()
         {
-            //BUG : Pressing Enter in Menu Use oldstate?
-            //TODO : Move Camera to GameStartScreen?
-            //TODO : Restrict camera movement
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");

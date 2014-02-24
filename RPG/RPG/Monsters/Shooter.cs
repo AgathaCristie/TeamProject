@@ -27,7 +27,7 @@ namespace RPG.Monsters
         }
         public void Initialize()
         {
-            playerPosition = new Vector2(200, 470);
+            playerPosition = new Vector2(200, 575);
             playerAnimation.Initialize(playerPosition, new Vector2(6, 2));
             playerAnimation.Active = true;
             tempCurrentFrame = Vector2.Zero;

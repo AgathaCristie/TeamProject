@@ -27,7 +27,7 @@ namespace RPG
             this.image = image;
             this.spriteBatch = spriteBatch;
             this.hero = hero;
-            string[] menuItems = new string[1] { "Back" };
+            string[] menuItems = new string[1] { "" };
             menu = new MenuComponent(game, menuItems, spriteBatch, font);
             imageContainer = new Rectangle(0, 0, Width , Height);
             Components.Add(menu);

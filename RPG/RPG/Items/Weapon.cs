@@ -12,8 +12,8 @@
         public HandsWeaponWieldEnumeration Hands { get; protected set; }
         public int AttackDamage { get; protected set; }
 
-        public Weapon(string weaponName, HandsWeaponWieldEnumeration handsWield, int attackDamage) :
-            base(weaponName)
+        public Weapon(string weaponName, string imagePath, HandsWeaponWieldEnumeration handsWield, int attackDamage) :
+            base(weaponName, imagePath)
         {
             this.Hands = handsWield;
             this.AttackDamage = attackDamage;

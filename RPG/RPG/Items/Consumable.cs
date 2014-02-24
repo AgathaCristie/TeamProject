@@ -11,8 +11,8 @@
     {
         public int Quantity { get; protected set; }
 
-        public Consumable(string consumableName, int quantity) :
-            base(consumableName)
+        public Consumable(string consumableName, string imagePath, int quantity) :
+            base(consumableName, imagePath)
         {
             this.Quantity = quantity;
         }

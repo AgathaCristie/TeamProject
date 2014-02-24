@@ -227,15 +227,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\HeroMoves\Hit.png">
-      <Name>Hit</Name>
+    <Compile Include="sprites\HeroMoves\HitLeft.png">
+      <Name>HitLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\HeroMoves\HitLeft.png">
-      <Name>HitLeft</Name>
+    <Compile Include="sprites\Weapons\FF1-GBA-Broadsword.png">
+      <Name>FF1-GBA-Broadsword</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

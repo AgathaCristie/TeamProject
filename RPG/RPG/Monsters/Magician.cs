@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,28 +6,41 @@ using Microsoft.Xna.Framework.Input;
 
 namespace RPG.Monsters
 {
-    public class Magician
+    public class Magician : Monster
     {
-        Texture2D playerImage;
-        Vector2 playerPosition, tempCurrentFrame;
-        Animation playerAnimation = new Animation();
-        Vector2 velocity = new Vector2(1, 0);       
-        Rectangle playZone = new Rectangle(900, 100, 325, 145);
+        //Texture2D playerImage;
+        //Vector2 playerPosition, tempCurrentFrame;
+        //Animation playerAnimation = new Animation();
+        //Vector2 velocity = new Vector2(1, 0);       
+        //Rectangle playZone = new Rectangle(900, 100, 325, 145);
 
-        KeyboardState keyState;
-        float moveSpeed = 150;
+        //KeyboardState keyState;
+        //float moveSpeed = 150;
 
         public Vector2 PlayerPosition
         {
             get { return this.playerPosition; }
         }
-        public void Initialize()
+
+        public Magician()
         {
+            playerAnimation = new Animation();
+            velocity = new Vector2(1, 0);
+            playZone = new Rectangle(900, 100, 325, 145);
+            moveSpeed = 150;
             playerPosition = new Vector2(900, 100);
             playerAnimation.Initialize(playerPosition, new Vector2(3, 2));
             playerAnimation.Active = true;
             tempCurrentFrame = Vector2.Zero;
         }
+
+        //public void Initialize()
+        //{
+        //    playerPosition = new Vector2(900, 100);
+        //    playerAnimation.Initialize(playerPosition, new Vector2(3, 2));
+        //    playerAnimation.Active = true;
+        //    tempCurrentFrame = Vector2.Zero;
+        //}
 
         public void LoadContent(ContentManager Content)
         {
@@ -41,7 +50,7 @@ namespace RPG.Monsters
 
         public void Update(GameTime gameTime)
         {
-            keyState = Keyboard.GetState();
+            //keyState = Keyboard.GetState();
             playerAnimation.Active = true;
 
 

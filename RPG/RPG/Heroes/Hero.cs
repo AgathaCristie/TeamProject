@@ -35,7 +35,7 @@
             this.ImagesLeft[2] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft3");
             this.ImagesLeft[3] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft4");
 
-           // this.imageAttack = manager.Load<Texture2D>("sprites\\HeroMoves\\Hit");
+            this.imageAttack = manager.Load<Texture2D>("sprites\\HeroMoves\\Hit");
             this.imageAttackLeft = manager.Load<Texture2D>("sprites\\HeroMoves\\HitLeft");
             this.DefaultImage = this.Images[0];
 

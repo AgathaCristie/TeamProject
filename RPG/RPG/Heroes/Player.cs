@@ -4,7 +4,8 @@
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    public abstract class Player : IHeroes
+    using RPG.Monsters;
+    public abstract class Player : IHeroes, IDamageMaking, IDamageTaking
     {
         protected int startX = 160;                          //initial position of player
         protected int startY = 250;
@@ -60,6 +61,9 @@
             get { return startY; }
         }
 
+        public int CurrentHealth { get; set; }
+        public int DamageInflict { get; set; }
+        public int DamageResist { get; set; }
 
         //IsLeft property
         public bool IsLeft
@@ -162,6 +166,15 @@
         public void PlaySound(float volume = 0.5f)
         {
             this.sound.Play(volume, 0.5f, 0.5f);
+        }
+
+        public void InflictDamage(Monster monster)
+        {
+            int damageInflicted = this.DamageInflict - monster.DamageResist;
+            if (damageInflicted > 0)
+            {
+                monster.CurrentHealth -= damageInflicted;
+            }
         }
     }
 }

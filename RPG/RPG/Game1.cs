@@ -93,6 +93,9 @@ namespace RPG
             shooter.LoadContent(Content); //didi ++
             fireBall.LoadContent(Content); //didi ++
             cam = new Camera(GraphicsDevice.Viewport, JohnSnow);
+
+            //Play background music
+            MediaPlayer.Play(Content.Load<Song>("sounds\\Mad-Man-'s-Chase"));
         }
 
         protected override void UnloadContent()

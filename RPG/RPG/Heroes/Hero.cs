@@ -8,15 +8,17 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using Microsoft.Xna.Framework.Audio;
 
     public class Hero : Player, IHeroes
     {
         //Fields
         private int windowHeight;
         private int windowWidth;
+        private SoundEffect sound;
 
         //Constructor
-        public Hero(ContentManager manager, int width, int height)
+        public Hero(ContentManager manager, SoundEffect sound, int width, int height)
         {
             windowWidth = width;
             windowHeight = height;
@@ -33,12 +35,15 @@
             this.ImagesLeft[2] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft3");
             this.ImagesLeft[3] = manager.Load<Texture2D>("sprites\\HeroMoves\\HeroMoveLeft4");
 
-            this.imageAttack = manager.Load<Texture2D>("sprites\\HeroMoves\\Hit");
+           // this.imageAttack = manager.Load<Texture2D>("sprites\\HeroMoves\\Hit");
             this.imageAttackLeft = manager.Load<Texture2D>("sprites\\HeroMoves\\HitLeft");
             this.DefaultImage = this.Images[0];
 
             //Create a rectangle for the hero
             this.ImageContainer = new Rectangle(160, 250, this.DefaultImage.Width, this.DefaultImage.Height);
+
+            //Load sound when hero attack
+            this.Sound = sound;
         }
     }
 }

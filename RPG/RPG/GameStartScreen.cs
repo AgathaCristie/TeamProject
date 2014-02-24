@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using RPG.Heroes;
+using Microsoft.Xna.Framework.Audio;
 
 namespace RPG
 {
@@ -25,7 +26,7 @@ namespace RPG
             this.imgBackgound = image;
             this.spriteBatch = sprite;
             imgBackGroundContainer = new Rectangle(0, 0, CONTAINER_SIZE, CONTAINER_SIZE);
-            hero = new Hero(game.Content, Width, Height);
+            hero = new Hero(game.Content, game.Content.Load<SoundEffect>("sounds\\SwordEffect"), Width, Height);
             fontMenu = game.Content.Load<SpriteFont>("fonts\\MenuFont");
         }
         

@@ -1,6 +1,7 @@
 ﻿namespace RPG.Heroes
 {
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     public abstract class Player : IHeroes
@@ -14,6 +15,7 @@
         protected Texture2D[] images = new Texture2D[4];      //Holds four images for the movement of the hero
         protected Texture2D[] imagesLeft = new Texture2D[4];
         protected Texture2D defaultImage;                     //starting image
+        protected SoundEffect sound;
         protected int count = 0;                              //counts images' index in Update()
         protected bool isLeft = false;                        //checks if the hero is turned to the left
         protected int heroMovement = 10;                      //controls the speed of the hero in MoveHero()
@@ -43,6 +45,12 @@
             set { this.defaultImage = value; }
         }
 
+        public SoundEffect Sound
+        {
+            get { return this.sound; }
+            set { this.sound = value; }
+        }
+
         public int StartX
         {
             get { return startX; }
@@ -70,6 +78,9 @@
                     this.defaultImage = imageAttack;
                 else
                     this.defaultImage = imageAttackLeft;
+
+                //Play sword slash sound
+                this.PlaySound();
             }
             if (Keyboard.GetState().IsKeyUp(Keys.Space))
             {
@@ -145,6 +156,12 @@
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.DefaultImage, this.ImageContainer, Color.White);
+        }
+
+        //Method for making sound when hero attack
+        public void PlaySound(float volume = 0.5f)
+        {
+            this.sound.Play(volume, 0.5f, 0.5f);
         }
     }
 }

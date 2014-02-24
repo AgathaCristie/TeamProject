@@ -77,6 +77,8 @@
     <Compile Include="GameStartScreen.cs" />
     <Compile Include="Heroes\Archer.cs" />
     <Compile Include="Heroes\Mage.cs" />
+    <Compile Include="IDamageMaking.cs" />
+    <Compile Include="IDamageTaking.cs" />
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Items\ArmorPartEnumeration.cs" />
     <Compile Include="Items\BaseItem.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Heroes\IHeroes.cs" />
     <Compile Include="Monsters\Magician.cs" />
     <Compile Include="Heroes\Player.cs" />
+    <Compile Include="Monsters\Monster.cs" />
     <Compile Include="Monsters\Shooter.cs" />
     <Compile Include="Monsters\Troll.cs" />
     <Compile Include="MenuComponent.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="GameRun.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Shots\FireBall.cs" />
+    <Compile Include="Shots\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

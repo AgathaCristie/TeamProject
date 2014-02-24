@@ -11,22 +11,31 @@ using RPG.Monsters;
 
 namespace RPG.Shots
 {
-    public class FireBall
+    public class FireBall : Projectile
     {
-        Texture2D playerImage;
-        Vector2 playerPosition, tempCurrentFrame;
-        Animation playerAnimation = new Animation();        
-        Vector2 velocity = new Vector2(1, 0);
-        //Rectangle playZone = new Rectangle(340, 250, 330, 140);
-        Rectangle playZone = new Rectangle(900, 100, 330, 140);
+        //Texture2D playerImage;
+        //Vector2 playerPosition, tempCurrentFrame;
+        //Animation playerAnimation = new Animation();        
+        //Vector2 velocity = new Vector2(1, 0);
+        ////Rectangle playZone = new Rectangle(340, 250, 330, 140);
+        //Rectangle playZone = new Rectangle(900, 100, 330, 140);
 
-        KeyboardState keyState;
-        float moveSpeed = 100;
+        //KeyboardState keyState;
+        //float moveSpeed = 100;
+
+        public FireBall()
+        {
+            playerAnimation = new Animation();
+            velocity = new Vector2(1, 0);
+            playZone = new Rectangle(900, 100, 330, 140);
+            moveSpeed = 100;           
+        }
 
         public Animation SpriteAnimation
         {
             get { return this.playerAnimation; }
         }
+        
         public void Initialize()
         {
             playerPosition = new Vector2(900, 100);            

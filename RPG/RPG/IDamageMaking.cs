@@ -8,9 +8,9 @@ namespace RPG
     public interface IDamageMaking
     {
         // properties:
-        public int DamageInflict { get; protected set; } // set separately in constructor for each monster/hero class 
+        int DamageInflict { get; set; } // set separately in constructor for each monster/hero class 
         
         // method:
-        public void InflictDamage();
+        void InflictDamage(IDamageTaking victim);
     }
 }

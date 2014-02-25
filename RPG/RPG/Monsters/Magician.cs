@@ -90,11 +90,6 @@ namespace RPG.Monsters
             tempCurrentFrame.X = playerAnimation.CurrentFrame.X;
             playerAnimation.CurrentFrame = tempCurrentFrame;
             playerAnimation.Update(gameTime);
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            playerAnimation.Draw(spriteBatch);
-        }
+        }               
     }
 }

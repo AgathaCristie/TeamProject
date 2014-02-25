@@ -87,13 +87,5 @@ namespace RPG.Shots
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (playerAnimation.Active)
-            {
-                playerAnimation.Draw(spriteBatch);
-            }
-        }
-
     }
 }

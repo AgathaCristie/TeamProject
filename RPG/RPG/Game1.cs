@@ -97,6 +97,7 @@ namespace RPG
 
             //Play background music
             MediaPlayer.Play(Content.Load<Song>("sounds\\Mad-Man-'s-Chase"));
+            MediaPlayer.IsRepeating = true; 
         }
 
         protected override void UnloadContent()

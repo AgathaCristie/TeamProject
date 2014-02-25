@@ -61,6 +61,7 @@ namespace RPG
 
         protected override void LoadContent()
         {
+            
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
@@ -170,15 +171,18 @@ namespace RPG
                 {
                     statsScreen.Hide();
                 }
+                
                 if (heroSpeed == 0)
                     JohnSnow.Update();  //Update the position of the hero
 
                 if (--heroSpeed < 0) heroSpeed = 5;
+                    
                 monster.Update(gameTime); //didi++     
                 magician.Update(gameTime); //didi++
                 shooter.Update(gameTime); //didi++
                 fireBall.SpriteAnimation.Active = true;//didi++                
                 fireBall.Update(gameTime, JohnSnow.ImageContainer.X, JohnSnow.ImageContainer.Y); //didi++
+                
             }
             cam.Update(gameTime, this);
             base.Update(gameTime);

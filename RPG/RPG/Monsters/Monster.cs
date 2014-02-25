@@ -7,7 +7,7 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    public abstract class Monster : IDamageTaking, IDamageMaking
+    public class Monster : IDamageTaking, IDamageMaking
     {
         // fields:
         protected Texture2D playerImage;
@@ -27,6 +27,11 @@
         public int CurrentHealth { get; set; }
         public int DamageResist { get; set; }
         public int DamageInflict { get; set; }
+        public Rectangle Playzone
+        { 
+            get {return this.playZone; }
+            set { this.Playzone = value; }
+        }
 
         // methods:
         public virtual void LoadContent(ContentManager Content)

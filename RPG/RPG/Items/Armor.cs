@@ -5,23 +5,28 @@
     using System.Linq;
     using System.Text;
 
-    using RPG.Heroes;
-
-    public class Armor : BaseItem
+    public class Armor
     {
-        public ArmorPartEnumeration ArmorPlacement { get; protected set; }
-        public int DefenceValue { get; protected set; }
-
-        public Armor(string armorName, string imagePath, ArmorPartEnumeration armorPlacement, int defence) :
-            base(armorName, imagePath)
+        public enum slot
         {
-            this.ArmorPlacement = armorPlacement;
-            this.DefenceValue = defence;
+            Head,
+            Body,
+            Hands,
+            Feet
         }
+        public slot Slot { get; protected set; }
+        public string Name { get; protected set; }
 
-        public override void Equip(Player player)
+        public uint Resistance { get; protected set; }
+
+        public string ImagePath { get; protected set; }
+
+        public Armor(Armor.slot Slot, string Name, uint Resistance, string ImagePath)
         {
-            
+            this.Slot = Slot;
+            this.Name = Name;
+            this.Resistance = Resistance;
+            this.ImagePath = ImagePath;
         }
     }
 }

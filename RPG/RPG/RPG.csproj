@@ -86,7 +86,6 @@
     <Compile Include="Items\Consumable.cs" />
     <Compile Include="Items\HandsWeaponWieldEnumeration.cs" />
     <Compile Include="Items\IEquipable.cs" />
-    <Compile Include="Items\Sword.cs" />
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="MenuClassChoice.cs" />
     <Compile Include="Monsters\Animation.cs" />

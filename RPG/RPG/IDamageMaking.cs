@@ -11,6 +11,6 @@ namespace RPG
         int DamageInflict { get; set; } // set separately in constructor for each monster/hero class 
         
         // method:
-        void InflictDamage(IDamageTaking victim);
+        // void InflictDamage();
     }
 }

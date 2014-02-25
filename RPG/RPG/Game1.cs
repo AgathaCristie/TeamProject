@@ -52,9 +52,9 @@ namespace RPG
 
         protected override void Initialize()
         {
-            monster.Initialize(); //didi++
-            magician.Initialize(); //didi++
-            shooter.Initialize(); //didi++
+            //monster.Initialize(); //didi++
+            //magician.Initialize(); //didi++
+            //shooter.Initialize(); //didi++
             fireBall.Initialize(); //didi++
             base.Initialize();
         }

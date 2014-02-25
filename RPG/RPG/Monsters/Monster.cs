@@ -7,7 +7,7 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    public abstract class Monster : IHeroes, IDamageTaking, IDamageMaking
+    public abstract class Monster : IDamageTaking, IDamageMaking
     {
         // fields:
         protected Texture2D playerImage;
@@ -25,11 +25,11 @@
         }
 
         public int CurrentHealth { get; set; }
-        public int DamageResist { get; protected set; }
-        public int DamageInflict { get; protected set; }
+        public int DamageResist { get; set; }
+        public int DamageInflict { get; set; }
 
         // methods:
-        public void LoadContent(ContentManager Content)
+        public virtual void LoadContent(ContentManager Content)
         {
             playerAnimation.AnimationImage = playerImage;
         }
@@ -37,11 +37,6 @@
         public void Draw(SpriteBatch spriteBatch)
         {
             playerAnimation.Draw(spriteBatch);
-        }
-
-        public void Update(GameTime gameTime)
-        {
-
         }
 
         public void InflictDamage(Hero hero)

@@ -42,7 +42,7 @@ namespace RPG.Monsters
         //    tempCurrentFrame = Vector2.Zero;
         //}
 
-        public void LoadContent(ContentManager Content)
+        public override void LoadContent(ContentManager Content)
         {
             playerImage = Content.Load<Texture2D>("sprites/BlackOnegamon");
             playerAnimation.AnimationImage = playerImage;
@@ -104,11 +104,6 @@ namespace RPG.Monsters
             tempCurrentFrame.X = playerAnimation.CurrentFrame.X;
             playerAnimation.CurrentFrame = tempCurrentFrame;
             playerAnimation.Update(gameTime);
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            playerAnimation.Draw(spriteBatch);
         }
     }
 }

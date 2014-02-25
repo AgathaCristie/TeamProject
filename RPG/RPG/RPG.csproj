@@ -79,6 +79,7 @@
     <Compile Include="Heroes\Mage.cs" />
     <Compile Include="IDamageMaking.cs" />
     <Compile Include="IDamageTaking.cs" />
+    <Compile Include="InventoryMenu.cs" />
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Items\ArmorPartEnumeration.cs" />
     <Compile Include="Items\BaseItem.cs" />

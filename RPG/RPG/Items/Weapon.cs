@@ -5,23 +5,28 @@
     using System.Linq;
     using System.Text;
 
-    using RPG.Heroes;
-
-    public class Weapon : BaseItem
+    public class Weapon
     {
-        public HandsWeaponWieldEnumeration Hands { get; protected set; }
-        public int AttackDamage { get; protected set; }
-
-        public Weapon(string weaponName, string imagePath, HandsWeaponWieldEnumeration handsWield, int attackDamage) :
-            base(weaponName, imagePath)
+        public enum slot
         {
-            this.Hands = handsWield;
-            this.AttackDamage = attackDamage;
+            OneHand,
+            TwoHand,
+            OffHand,
+            Shield
         }
+        public slot Slot { get; protected set; }
+        public string Name { get; protected set; }
 
-        public override void Equip(Player player)
+        public uint Resistance { get; protected set; }
+
+        public string ImagePath { get; protected set; }
+
+        public Weapon(Weapon.slot Slot, string Name, uint Resistance, string ImagePath)
         {
-            throw new NotImplementedException();
+            this.Slot = Slot;
+            this.Name = Name;
+            this.Resistance = Resistance;
+            this.ImagePath = ImagePath;
         }
     }
 }

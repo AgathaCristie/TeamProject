@@ -42,7 +42,7 @@ namespace RPG.Monsters
         //    tempCurrentFrame = Vector2.Zero;
         //}
 
-        public void LoadContent(ContentManager Content)
+        public override void LoadContent(ContentManager Content)
         {
             playerImage = Content.Load<Texture2D>("sprites/Orc_LR2");
             playerAnimation.AnimationImage = playerImage;

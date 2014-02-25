@@ -16,12 +16,7 @@ namespace RPG.Monsters
 
         //KeyboardState keyState;
         //float moveSpeed = 150;
-
-        public Vector2 PlayerPosition
-        {
-            get { return this.playerPosition; }
-        }
-
+        
         public Magician()
         {
             playerAnimation = new Animation();
@@ -42,7 +37,7 @@ namespace RPG.Monsters
         //    tempCurrentFrame = Vector2.Zero;
         //}
 
-        public void LoadContent(ContentManager Content)
+        public override void LoadContent(ContentManager Content)
         {
             playerImage = Content.Load<Texture2D>("sprites/Magician");
             playerAnimation.AnimationImage = playerImage;

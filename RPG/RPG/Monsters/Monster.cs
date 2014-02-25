@@ -29,7 +29,7 @@
         public int DamageInflict { get; set; }
 
         // methods:
-        public void LoadContent(ContentManager Content)
+        public virtual void LoadContent(ContentManager Content)
         {
             playerAnimation.AnimationImage = playerImage;
         }

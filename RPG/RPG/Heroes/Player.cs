@@ -9,6 +9,7 @@
     {
         protected int startX = 160;                          //initial position of player
         protected int startY = 250;
+        protected bool accessible;
 
         protected Rectangle imageContainer;
         protected Texture2D imageAttack;
@@ -110,7 +111,9 @@
             {
                 this.IsLeft = true;
                 this.DefaultImage = this.ImagesLeft[count];
-                this.imageContainer.X -= heroMovement;
+                if(imageContainer.X >= 0)
+                    this.imageContainer.X -= heroMovement;
+
             }
 
             // Movement up
@@ -120,12 +123,14 @@
                 if (this.IsLeft == true)
                 {
                     this.DefaultImage = this.ImagesLeft[count];
-                    this.imageContainer.Y -= heroMovement;
+                    if (imageContainer.Y >= 1)                       
+                        this.imageContainer.Y -= heroMovement;
                 }
                 else if (this.IsLeft == false)
                 {
                     this.DefaultImage = this.Images[count];
-                    this.imageContainer.Y -= heroMovement;
+                    if (imageContainer.Y >= 1)
+                        this.imageContainer.Y -= heroMovement;
                 }
 
             }
@@ -134,14 +139,21 @@
             if (Keyboard.GetState().IsKeyDown(Keys.Down)
                 || GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
             {
+                
                 if (this.IsLeft == true)
                 {
                     this.DefaultImage = this.ImagesLeft[count];
+
+                    accessible = MovementControl();
+                    if (accessible == true)
                     this.imageContainer.Y += heroMovement;
                 }
                 else if (this.IsLeft == false)
                 {
                     this.DefaultImage = this.Images[count];
+
+                    accessible = MovementControl();
+                    if (accessible == true)
                     this.imageContainer.Y += heroMovement;
                 }
 
@@ -175,6 +187,18 @@
             {
                 monster.CurrentHealth -= damageInflicted;
             }
+        }
+        //160,250
+        public bool MovementControl()
+        {
+            bool isAccessible = true;
+
+            if ((imageContainer.Y == 250) && (imageContainer.X <= 305))
+                isAccessible = false;
+            else if ((imageContainer.Y == 250) && ((imageContainer.X >= 335) && (imageContainer.X <= 620)))
+                isAccessible = false;
+
+            return isAccessible;
         }
     }
 }

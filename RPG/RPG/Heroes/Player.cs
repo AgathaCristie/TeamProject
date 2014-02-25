@@ -10,6 +10,7 @@
         protected int startX = 160;                          //initial position of player
         protected int startY = 250;
         protected bool accessible;
+        protected double life = 30;                          //In order to use hpBar life field is needed
 
         protected Rectangle imageContainer;
         protected Texture2D imageAttack;
@@ -23,6 +24,11 @@
         protected int heroMovement = 10;                      //controls the speed of the hero in MoveHero()
 
         //Properties
+        public double Life
+        {
+            get { return this.life; }
+            set { this.life = value; }
+        }
         public Rectangle ImageContainer
         {
             get { return this.imageContainer; }

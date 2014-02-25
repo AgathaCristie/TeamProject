@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using RPG.Heroes;
 using RPG.Monsters;
 using RPG.Shots;
+using RPG.AddOns; //monsters
 
 namespace RPG
 {
@@ -36,10 +37,12 @@ namespace RPG
         GameStartScreen gameStartScreen;
 
         Hero JohnSnow;
-        Troll monster = new Troll(); //didi++
-        Magician magician = new Magician(); //didi++
-        Shooter shooter = new Shooter(); //didi++
-        FireBall fireBall = new FireBall(); //didi++
+        Troll monster = new Troll(); //monsters 
+        Magician magician = new Magician(); //monsters
+        Shooter shooter = new Shooter(); //monsters
+        FireBall fireBall = new FireBall(); //monsters
+        Mace mace = new Mace(); //monsters
+        HpBar hpBar = new HpBar(); //monsters
         Camera cam;
 
         public Game1()
@@ -51,11 +54,9 @@ namespace RPG
         }
 
         protected override void Initialize()
-        {
-            //monster.Initialize(); //didi++
-            //magician.Initialize(); //didi++
-            //shooter.Initialize(); //didi++
-            fireBall.Initialize(); //didi++
+        {       
+            fireBall.Initialize(); //monsters
+            mace.Initialize(); //monsters
             base.Initialize();
         }
 
@@ -89,10 +90,12 @@ namespace RPG
             activeScreen.Show();
 
             JohnSnow = gameStartScreen.Hero;
-            monster.LoadContent(Content); //didi ++ 
-            magician.LoadContent(Content); //didi ++
-            shooter.LoadContent(Content); //didi ++
-            fireBall.LoadContent(Content); //didi ++
+            monster.LoadContent(Content); //monsters 
+            magician.LoadContent(Content); //monsters
+            shooter.LoadContent(Content); //monsters
+            fireBall.LoadContent(Content); //monsters
+            mace.LoadContent(Content); //monsters
+            hpBar.LoadContent(Content); //monsters
             cam = new Camera(GraphicsDevice.Viewport, JohnSnow);
 
             //Play background music
@@ -177,12 +180,14 @@ namespace RPG
                     JohnSnow.Update();  //Update the position of the hero
 
                 if (--heroSpeed < 0) heroSpeed = 5;
-                    
-                monster.Update(gameTime); //didi++     
-                magician.Update(gameTime); //didi++
-                shooter.Update(gameTime); //didi++
-                fireBall.SpriteAnimation.Active = true;//didi++                
-                fireBall.Update(gameTime, JohnSnow.ImageContainer.X, JohnSnow.ImageContainer.Y); //didi++
+
+                monster.Update(gameTime); //monsters ++     
+                magician.Update(gameTime); //monsters ++
+                shooter.Update(gameTime, JohnSnow, mace); //monsters ++
+                fireBall.SpriteAnimation.Active = true;//monsters ++                    
+                fireBall.Update(gameTime, JohnSnow); //monsters ++
+                mace.Update(gameTime, JohnSnow); //monsters ++
+                hpBar.Update(JohnSnow); //monsters ++
                 
             }
             cam.Update(gameTime, this);
@@ -195,10 +200,12 @@ namespace RPG
             spriteBatch.Begin(SpriteSortMode.Deferred,BlendState.AlphaBlend,null,null,null,null,cam.Transform);
             
             base.Draw(gameTime);
-            monster.Draw(spriteBatch); //didi++
-            magician.Draw(spriteBatch); //didi++
-            shooter.Draw(spriteBatch); //didi++
-            fireBall.Draw(spriteBatch); //didi++
+            monster.Draw(spriteBatch); //monsters
+            magician.Draw(spriteBatch); //monsters
+            shooter.Draw(spriteBatch); //monsters
+            fireBall.Draw(spriteBatch); //monsters
+            mace.Draw(spriteBatch); //monsters
+            hpBar.Draw(spriteBatch); //monsters
             spriteBatch.End();           
         }
 

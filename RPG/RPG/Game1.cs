@@ -100,6 +100,7 @@ namespace RPG
 
             //Play background music
             MediaPlayer.Play(Content.Load<Song>("sounds\\Mad-Man-'s-Chase"));
+            MediaPlayer.Volume = 0.2f;
             MediaPlayer.IsRepeating = true; 
         }
 

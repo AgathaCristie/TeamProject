@@ -9,8 +9,10 @@
 
     public class Monster : IDamageTaking, IDamageMaking
     {
+        public Texture2D PlayerImage;
+
         // fields:
-        protected Texture2D playerImage;
+        protected double life = 30;
         protected Vector2 playerPosition, tempCurrentFrame;
         protected Animation playerAnimation;
         protected Vector2 velocity;
@@ -24,6 +26,12 @@
             get { return this.playerPosition; }
         }
 
+        public double Life
+        {
+            get { return this.life; }
+            set { this.life = value; }
+        }
+
         public int CurrentHealth { get; set; }
         public int DamageResist { get; set; }
         public int DamageInflict { get; set; }
@@ -34,9 +42,9 @@
         }
 
         // methods:
-        public virtual void LoadContent(ContentManager Content)
+        public virtual void LoadContent(ContentManager content)
         {
-            playerAnimation.AnimationImage = playerImage;
+            playerAnimation.AnimationImage = PlayerImage;
         }
 
         public void Draw(SpriteBatch spriteBatch)

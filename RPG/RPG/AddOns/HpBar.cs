@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using RPG.Heroes;
+using RPG.Monsters;
 
 namespace RPG.AddOns
 {
@@ -18,6 +19,7 @@ namespace RPG.AddOns
         Texture2D redLine;
         Texture2D greenLine;
         Texture2D deadHero;
+        Texture2D deadMonster;
         public bool isDeadHero = false;
         bool visible = false;
 
@@ -27,6 +29,7 @@ namespace RPG.AddOns
             redLine = Content.Load<Texture2D>("sprites/redLine");
             greenLine = Content.Load<Texture2D>("sprites/greenLine");
             deadHero = Content.Load<Texture2D>("sprites\\HeroMoves\\DeadHero");
+            deadMonster = Content.Load<Texture2D>("sprites/Tombstone");
         }
         public void Update(Hero hero)
         {
@@ -52,6 +55,31 @@ namespace RPG.AddOns
 
             }
         }
+        public void Update(Monster monster)
+        {
+            visible = true;
+            int currentX = monster.Playzone.X;
+            int currentY = monster.Playzone.Y;
+            hpBarLife.X = currentX + 15;
+            hpBarLife.Y = currentY - 20;
+            hpBarLife.Width = (int)monster.Life;
+
+            //When hero dies change the image
+            if (monster.Life < 1)
+            {
+                monster.PlayerImage = deadMonster;
+                isDeadHero = true;
+
+            }
+
+            hpBarDeath.X = currentX + 15;
+            hpBarDeath.Y = currentY - 20;
+            if (monster.Life <= 0)
+            {
+
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (visible)

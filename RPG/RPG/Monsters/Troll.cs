@@ -44,8 +44,8 @@ namespace RPG.Monsters
 
         public override void LoadContent(ContentManager Content)
         {
-            playerImage = Content.Load<Texture2D>("sprites/BlackOnegamon");
-            playerAnimation.AnimationImage = playerImage;
+            PlayerImage = Content.Load<Texture2D>("sprites/BlackOnegamon");
+            playerAnimation.AnimationImage = PlayerImage;
         }
 
         public void Update(GameTime gameTime)

@@ -24,8 +24,8 @@ namespace RPG.Monsters
 
         public override void LoadContent(ContentManager Content)
         {
-            playerImage = Content.Load<Texture2D>("sprites/Orc4");
-            playerAnimation.AnimationImage = playerImage;
+            PlayerImage = Content.Load<Texture2D>("sprites/Orc4");
+            playerAnimation.AnimationImage = PlayerImage;
         }
 
         public void Update(GameTime gameTime, Hero hero, Mace mace)

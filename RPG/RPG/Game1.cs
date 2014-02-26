@@ -190,6 +190,13 @@ namespace RPG
                 fireBall.Update(gameTime, JohnSnow); //monsters ++
                 mace.Update(gameTime, JohnSnow); //monsters ++
                 hpBar.Update(JohnSnow); //monsters ++
+
+                //If hero is dead end the game
+                if (hpBar.isDeadHero)
+                {
+                    // TODO:
+
+                }
                 
             }
             cam.Update(gameTime, this);

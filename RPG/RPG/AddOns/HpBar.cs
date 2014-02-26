@@ -17,12 +17,16 @@ namespace RPG.AddOns
         Rectangle hpBarDeath = new Rectangle(0, 0, 30, 5);
         Texture2D redLine;
         Texture2D greenLine;
+        Texture2D deadHero;
+        public bool isDeadHero = false;
         bool visible = false;
+
 
         public void LoadContent(ContentManager Content)
         {
             redLine = Content.Load<Texture2D>("sprites/redLine");
             greenLine = Content.Load<Texture2D>("sprites/greenLine");
+            deadHero = Content.Load<Texture2D>("sprites\\HeroMoves\\DeadHero");
         }
         public void Update(Hero hero)
         {
@@ -31,7 +35,16 @@ namespace RPG.AddOns
             int currentY = hero.ImageContainer.Y;
             hpBarLife.X = currentX + 15;
             hpBarLife.Y = currentY - 20;
-            hpBarLife.Width = (int)hero.Life;                 
+            hpBarLife.Width = (int)hero.Life;
+
+            //When hero dies change the image
+            if (hero.Life < 1)
+            {
+                hero.DefaultImage = deadHero;
+                isDeadHero = true;
+
+            }
+
             hpBarDeath.X = currentX + 15;
             hpBarDeath.Y = currentY - 20;
         }
@@ -45,3 +58,4 @@ namespace RPG.AddOns
         }
     }
 }
+

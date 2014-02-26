@@ -34,6 +34,10 @@ namespace RPG.AddOns
             hpBarLife.Width = (int)hero.Life;                 
             hpBarDeath.X = currentX + 15;
             hpBarDeath.Y = currentY - 20;
+            if (hero.Life <= 0)
+            {
+
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -43,5 +47,7 @@ namespace RPG.AddOns
                 spriteBatch.Draw(greenLine, hpBarLife, Color.White);
             }
         }
+
+
     }
 }

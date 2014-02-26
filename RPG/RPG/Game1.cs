@@ -42,8 +42,9 @@ namespace RPG
         Shooter shooter = new Shooter(); //monsters
         FireBall fireBall = new FireBall(); //monsters
         Mace mace = new Mace(); //monsters
-        HpBar hpBar = new HpBar(); //monsters
+        //HpBar hpBar = new HpBar(); //monsters
         Camera cam;
+        HpBar hpBar;
 
         public Game1()
         {
@@ -62,8 +63,8 @@ namespace RPG
 
         protected override void LoadContent()
         {
-            
 
+            hpBar = new HpBar();
             spriteBatch = new SpriteBatch(GraphicsDevice);
             fontMenu = Content.Load<SpriteFont>("fonts\\MenuFont");
             imgMenuBackground = Content.Load<Texture2D>("images\\MenuBackground");
@@ -101,7 +102,7 @@ namespace RPG
             //Play background music
             MediaPlayer.Play(Content.Load<Song>("sounds\\Mad-Man-'s-Chase"));
             MediaPlayer.Volume = 0.2f;
-            MediaPlayer.IsRepeating = true; 
+            MediaPlayer.IsRepeating = true;          
         }
 
         protected override void UnloadContent()

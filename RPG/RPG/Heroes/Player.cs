@@ -206,5 +206,14 @@
 
             return isAccessible;
         }
+
+        public bool isAlive()
+        {
+            bool alive = true;
+            if (life <= 0)
+                alive = false;
+
+            return alive;
+        }
     }
 }

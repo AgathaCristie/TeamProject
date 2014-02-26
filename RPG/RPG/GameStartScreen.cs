@@ -49,7 +49,13 @@ namespace RPG
             keyboardState = Keyboard.GetState();
 
             if (keyboardState.IsKeyDown(Keys.Escape))
-                Game.Exit(); 
+                Game.Exit();
+            if (hero.isAlive() == false)
+            {
+                //this.Hide();
+                Game.Exit();
+            }
+                
  
         }
         public override void Draw(GameTime gameTime)

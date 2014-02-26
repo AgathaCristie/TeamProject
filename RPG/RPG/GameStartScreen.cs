@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using RPG.Heroes;
 using Microsoft.Xna.Framework.Audio;
+using RPG.Items;
 
 namespace RPG
 {
@@ -19,15 +20,21 @@ namespace RPG
         private Rectangle imgBackGroundContainer;
         private SpriteBatch spriteBatch;
         private Hero hero;
+
         private SpriteFont fontMenu;
+        private Game game;
+
+        private Armor shield;
 
         public GameStartScreen(Game game, SpriteBatch sprite, Texture2D image) : base(game, sprite)
         {
             this.imgBackgound = image;
             this.spriteBatch = sprite;
+            this.game = game;
             imgBackGroundContainer = new Rectangle(0, 0, CONTAINER_SIZE, CONTAINER_SIZE);
             hero = new Hero(game.Content, game.Content.Load<SoundEffect>("sounds\\SwordEffect"), Width, Height);
             fontMenu = game.Content.Load<SpriteFont>("fonts\\MenuFont");
+            LoadItems();
         }
         
         public Hero Hero
@@ -48,11 +55,16 @@ namespace RPG
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(imgBackgound, imgBackGroundContainer, Color.White);
+            shield.Draw(spriteBatch);
             hero.Draw(spriteBatch);
             base.Draw(gameTime);    
         }
 
-
+        public void LoadItems()
+        {
+            shield = new Armor(Armor.slot.Body, "Dragon Shield", 5, "sprites\\Weapons\\Shield",spriteBatch, game);
+            
+        }
         //Write Text On Screen
         public void WriteText(SpriteFont font, SpriteBatch sprite, string text, Color c )
         {

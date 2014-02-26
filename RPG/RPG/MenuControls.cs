@@ -52,14 +52,8 @@ namespace RPG
             
             base.Draw(gameTime);
 
-            WriteText(font, spriteBatch);
+            
         }
-        public void WriteText(SpriteFont font, SpriteBatch sprite)
-        {
-            string str = "UP\t\tArrow Up\nDown\t\tDownArrow";
-            Color c = Color.Green;
-            sprite.DrawString(font, str, new Vector2(120, 190), c);
-            //Add rectangle or border around text
-        }
+
     }
 }

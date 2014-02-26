@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RPG.AddOns.HpBar" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAQAAAAgAAAAAAAUAAQAAAAAAAAgAACAAAAAQ=</HashCode>
+      <FileName>AddOns\HpBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Heroes.Archer" Collapsed="true">
+    <Position X="3.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Heroes\Archer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Heroes.Hero" Collapsed="true">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Heroes\Hero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Heroes.Mage" Collapsed="true">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Heroes\Mage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Heroes.Player" Collapsed="true">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgUAAIAAACiAAwAgBABAAQwAEAkkABAABYAAEBEBAAA=</HashCode>
+      <FileName>Heroes\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Items.Armor" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAYQAEAAAAAAAAAAAAAAIAgA=</HashCode>
+      <FileName>Items\Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Items.BaseItem" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAgAAAAAAAIQQAAAAABAgAAAAAAAAAAQ=</HashCode>
+      <FileName>Items\BaseItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Items.Consumable" Collapsed="true">
+    <Position X="11" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAA=</HashCode>
+      <FileName>Items\Consumable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Items.Weapon" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAIAgA=</HashCode>
+      <FileName>Items\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Monsters.Animation" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASCAAAAgCAAAwAgAAAAIgBAAGACABAgAAAAIAAAAAA=</HashCode>
+      <FileName>Monsters\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Monsters.Magician" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Monsters\Magician.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Monsters.Monster" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAEAAAAoAAAAAAAAQAQUggAAAAAAQBEAABgAQ=</HashCode>
+      <FileName>Monsters\Monster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RPG.Monsters.Shooter" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Monsters\Shooter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Monsters.Troll" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Monsters\Troll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Shots.FireBall" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Shots\FireBall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Shots.Mace" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DIQAAAAAEAAAAwAAAAAAAAAAAcAAAAAAAAQAAAAABAQ=</HashCode>
+      <FileName>Shots\Mace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Shots.Projectile" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAEAAAAgAAAAAAAAAAAUggAAAAAAQAAAAAwAA=</HashCode>
+      <FileName>Shots\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.BaseGameScreen" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAABAAAA4AAEACAAEAAAAQEAAAIAAAAAABAAAA=</HashCode>
+      <FileName>BaseGameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Camera" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAEAAAAAAAAAAAAQAAAAEAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.Game1" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAFEAAEoIAAyAAAAAAAAAAgIQAGAgAAAgAAAJAWAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.GameRun" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>GameRun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.GameStartScreen" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEIAAkAAAgBJAAAAAAAAAAAAQAgIAAgBAAAAAAA=</HashCode>
+      <FileName>GameStartScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.InventoryMenu" Collapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>InventoryMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuClassChoice" Collapsed="true">
+    <Position X="17" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAQAAAAAAAQgAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>MenuClassChoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuComponent" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAEIAAgAAAwQAQCAQIAgAAAAggAAABIAAAgAAAAA=</HashCode>
+      <FileName>MenuComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuControls" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAEAAAAAAAwAAAAAAAQgAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>MenuControls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuHighScores" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAwAAAAAAAQgAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>MenuHighScores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuStartScreen" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAgAAAAAAAQgAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>MenuStartScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG.MenuStats" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAEAAAwAAAAAAAQgAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>MenuStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RPG.Heroes.IHeroes" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAAgAAgAAAAAAAAAAAAEAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Heroes\IHeroes.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RPG.Items.IEquipable" Collapsed="true">
+    <Position X="23" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Items\IEquipable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RPG.IDamageMaking" Collapsed="true">
+    <Position X="19.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDamageMaking.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RPG.IDamageTaking" Collapsed="true">
+    <Position X="21.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>IDamageTaking.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="RPG.Items.ArmorPartEnumeration" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAIAAEAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Items\ArmorPartEnumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RPG.Items.HandsWeaponWieldEnumeration" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIA=</HashCode>
+      <FileName>Items\HandsWeaponWieldEnumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
